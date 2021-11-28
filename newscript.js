@@ -141,7 +141,7 @@ async function loadFullCard(label) {
         }
     }
 
-    // -------------------------------------------- TO DO (check if there are any "case" not treated) -------------------------------------------------------------
+    // -------------------------------------------- TO DO (check if there are any "case" not treated) -- to do Pilots --------------------------------------------------------//
     if(data.vehicles){
         for(i=0; i < data.vehicles.length; i++){
             const element = data.vehicles[i];
