@@ -168,6 +168,7 @@ nav {
     color: aliceblue;
     padding: 1vh;
     margin: 0 1vw 0 1vw;
+     transition: 1s;
 
 }
 
