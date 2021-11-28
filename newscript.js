@@ -83,7 +83,7 @@ async function loadNavLabels(label) {
     
     
 }
-// creation de l'item visuel pour les films
+// creation de l'item visuel apres le choix;
 
 async function cardItem(cardItems, cardUrl){
     const el = document.createElement('div');
@@ -106,7 +106,7 @@ async function loadFullCard(label) {
      LoaderElement.classList.add('hide');
      
      
-     // TODO------------------------------------------------------------------ faire un if Selon la categorie pour que cette function marche avec tous les type de "minicard"---------//
+     //--------- categories pour chaque type; pour que la function marche avec tous les type de "minicard" à créer ---------//
      if(data.planets){
          for(i=0; i < data.planets.length; i++){
         const element = data.planets[i];
@@ -141,7 +141,7 @@ async function loadFullCard(label) {
         }
     }
 
-    // -------------------------------------------- TO DO STARSHIPS -------------------------------------------------------------
+    // -------------------------------------------- TO DO (check if there are any "case" not treated) -------------------------------------------------------------
     if(data.vehicles){
         for(i=0; i < data.vehicles.length; i++){
             const element = data.vehicles[i];
@@ -157,19 +157,14 @@ async function loadFullCard(label) {
     
     for (const [key, value] of Object.entries(data)) {
         console.log([key]);
-         const whatIwant = [`${key} : ${value}`];
-
-
-      
+         const whatIwant = [`${key} : ${value}`];      
          
         console.log(whatIwant);
-        if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
-          key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld"){        
+             if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
+                key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld"){        
 
                 createFullCard(whatIwant);
-        }  
-        // else if(key === "planets" && key === "species" && key === "characters" && key === "films"){
-           
+            }             
         }
         
     
