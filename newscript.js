@@ -153,7 +153,13 @@ async function loadFullCard(label) {
     if(data.starships){
         for(i=0; i < data.starships.length; i++){
         element = data.starships[i];
-        createStarshipBtn(data.starships);
+        createStarshipBtn(element);
+        }
+    }
+      if(data.pilots){
+        for(i=0; i < data.pilots.length; i++){
+        element = data.pilots[i];
+        createPilotsBtn(element);
         }
     }
     
@@ -233,6 +239,16 @@ async function createStarshipBtn(parameter){
     const newBtn = document.createElement("button");    
         newBtn.innerText = data.name;
         newBtn.setAttribute("class", "starshipbtn");
+        newBtn.addEventListener("click", () => loadFullCard(parameter));
+        myCardContainer.appendChild(newBtn);
+    
+}
+
+async function createPilotsBtn(parameter){
+    const data = await fetch(`${parameter}`).then((res) => res.json());
+    const newBtn = document.createElement("button");    
+        newBtn.innerText = data.name;
+        newBtn.setAttribute("class", "pilotsbtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
         myCardContainer.appendChild(newBtn);
     
