@@ -110,8 +110,8 @@ async function loadFullCard(label) {
      
      //--------- categories pour chaque type; pour que la function marche avec tous les type de "minicard" à créer ---------//
      if(data.planets){
-         for(i=0; i < data.planets.length; i++){
-        const element = data.planets[i];
+        for(i=0; i < data.planets.length; i++){
+            const element = data.planets[i];
             createInfoBtn(element);
         }
     }
@@ -138,8 +138,8 @@ async function loadFullCard(label) {
     }
     if(data.species){
         for(i=0; i < data.species.length; i++){
-           const element = data.species[i];
-        createSpeciesBtn(element);
+            const element = data.species[i];
+            createSpeciesBtn(element);
         }
     }
 
@@ -147,31 +147,31 @@ async function loadFullCard(label) {
     if(data.vehicles){
         for(i=0; i < data.vehicles.length; i++){
             const element = data.vehicles[i];
-        createVehicleBtn(element);
+            createVehicleBtn(element);
         }
     }
     if(data.starships){
         for(i=0; i < data.starships.length; i++){
-        element = data.starships[i];
-        createStarshipBtn(element);
+            const element = data.starships[i];
+            createStarshipBtn(element);
         }
     }
       if(data.pilots){
         for(i=0; i < data.pilots.length; i++){
-        element = data.pilots[i];
-        createPilotsBtn(element);
+            const element = data.pilots[i];
+            createPilotsBtn(element);
         }
     }
     
     for (const [key, value] of Object.entries(data)) {
-        console.log([key]);
-         const whatIwant = [`${key} : ${value}`];      
+            console.log([key]);
+            const whatIwant = [`${key} : ${value}`];      
          
-        console.log(whatIwant);
-             if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
-                key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld"){        
+            console.log(whatIwant);
+            if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
+               key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld"){        
 
-                createFullCard(whatIwant);
+            createFullCard(whatIwant);
             }             
         }
         
