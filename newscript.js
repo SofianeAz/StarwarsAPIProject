@@ -2,6 +2,8 @@ const url = "https://swapi.dev/api/";
 
 const LoaderElement = document.getElementById("loader");
 
+//------------------------------------------------------- TO DO Search bar --------------------------------------//
+
 // init
 (async () => {
     const data = await fetch(url).then((res) => res.json());
