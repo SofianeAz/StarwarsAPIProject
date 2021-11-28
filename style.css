@@ -1,0 +1,299 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+*, ::before, ::after{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+body{
+    background-image: url(https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-36-1.jpg) ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+}
+
+
+/* nav related CSS */
+nav {
+    position: fixed;
+    top:0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    width: 100%;
+    background-color: black;
+    color: rgb(156, 156, 132);
+}
+
+.navbutton{
+    
+    border-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    width: 10vw;
+    background: transparent;
+    box-shadow: 5px 5px aliceblue;
+    letter-spacing: 0.5px;
+    text-decoration: aliceblue;
+    color: aliceblue;
+    transition: 1s;
+
+}
+
+.navbutton:hover{
+    box-shadow: 10px 10px yellow;
+    letter-spacing: 3px;
+    color: aliceblue;
+    background: black;
+    text-decoration: underline yellow;
+    transition: 1s;
+}
+
+.animation-nav{
+    /* margin-top: 25vh; */
+
+    /* border: 5px yellow solid; */
+    /* animation: spin 2s linear infinite; */
+    transition: 0.5s;
+}
+.animation-nav:hover{
+
+    /* border: 5px rgb(0, 0, 0) solid; */
+    /* animation: spin 2s linear infinite; */
+    transition: 0.5s;
+}
+
+.cardbouton{
+    background: rgb(255,241,27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background-color: black;
+    /* background-image: url(https://www.kindpng.com/picc/m/101-1013629_black-star-star-wars-death-star-hd-png.png); */
+    background-position: center;
+    height: 175px;
+    width: 175px;
+    color: rgb(255, 255, 255);
+    padding: 1.5vh ;
+    margin: 1vw;
+    border-radius: 50%;
+    border: 2px black solid;
+    box-shadow: 2px 2px aliceblue;
+    transition: 1s;
+    
+}
+
+.cardbouton:hover{
+    transition: 1s;
+    color: aliceblue; 
+    letter-spacing: 3px;
+    box-shadow: 10px 10px yellow;
+}
+
+.fullcard{
+    font-size: 1em;
+    background-color: gray;    
+    width: 30vw;
+    padding: 5px;
+    border: 5px black solid;
+}
+
+/* hide class */
+.hide{
+    display:none;   
+}
+
+
+/* Containers CSS */
+#bigcontainer{
+    display: flex;
+    width: 100vw;
+}
+#main-container{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 50vw;
+    background-color: transparent;
+    /* margin-top: 10vh;
+    margin-bottom: 15vh;
+    margin-left: 5vw;
+    margin-right: 5vw; */
+    margin: 10vh 5vw 10vh 5vw;
+    
+}
+
+#card-container{
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    margin: 5vw;
+    background-color: transparent;
+    padding: 5vw;
+}
+
+
+
+
+
+/* footer CSS */
+#footer-container{
+    
+    display: flex;
+    height: 10vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    position: fixed;
+    bottom: 0;
+
+}
+
+
+.nextbtn, .prevbtn{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: aliceblue;
+    padding: 1vh;
+    margin: 0 1vw 0 1vw;
+
+}
+
+
+
+.nextbtn:hover, .prevbtn:hover{
+    letter-spacing: 3px;
+    text-decoration: underline yellow;
+    transition: 1s;
+    margin: 0 2vw 0 2vw;
+}
+
+
+
+
+/* cards CSS */
+.fullcardbtn{
+background-color: aliceblue;
+color: black;
+border-style: none;
+font-weight: bolder;
+border: 3px gray solid;
+height: 3vh;
+width: 100%;
+align-self: flex-start;
+letter-spacing: 1px;
+}
+.fullcardbtn:hover{
+    background-color: black;
+    color: aliceblue;
+}
+
+.moviecardbtn{
+    background-color: black;
+    color: aliceblue;
+    border-style: none;
+    border: 3px gray solid;
+    height: 3vh;
+    width: 100%;
+    align-self: center;
+    letter-spacing: 1px;
+}
+.moviecardbtn:hover{
+    background-color: aliceblue;
+    color: black;
+}
+
+.speciesbtn{
+    background-color: rgb(255, 255, 255);
+    color: rgb(17, 144, 255);
+    border-style: none;
+    border: 3px gray solid;
+    height: 3vh;
+    width: 100%;
+    align-self: center;
+    letter-spacing: 1px;
+
+}
+
+.speciesbtn:hover{
+
+    background-color:  rgb(17, 144, 255); 
+    color:rgb(255, 255, 255);
+    
+
+}
+
+
+
+
+
+/* loader */
+
+.loader{    
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background:transparent;
+    /* background-image: url(https://images.pond5.com/space-travel-background-loop-animation-footage-084070570_prevstill.jpeg); */
+        z-index: 50;
+    /* background-repeat: no-repeat;  */
+    /* background-size: 1920px 1080px; */
+    
+    position: fixed;  
+    /* animation: zoomitbro 0.5s linear infinite; */
+
+}
+
+/* @keyframes zoomitbro {
+    0% { zoom:  110%;}
+    10%{ zoom: 120%}
+    20%{ zoom: 130%}
+    30%{ zoom: 140%}
+    40%{ zoom: 150%}
+    50%{ zoom: 160%}
+    60%{ zoom: 170%}
+    70%{ zoom: 180%}
+    80%{ zoom: 190%}
+    90%{ zoom: 200%}
+    100%{zoom: 210%}
+} */
+
+.subloader{
+    top: 45%;
+    right:40%;
+    background-color: yellow;
+    height: 20vh;
+    width: 20vw;
+    border: 16px solid #fffb00; 
+    border-top: 16px solid #000000; 
+    border-radius: 50%;
+    z-index: 51;
+
+    position: fixed;
+    color:black;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.loadertxt{
+    animation: spin 1.5s linear infinite;
+}
+
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
