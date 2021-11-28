@@ -238,6 +238,45 @@ letter-spacing: 1px;
 
 }
 
+.vehiclesbtn{
+    background-color: aliceblue;
+    color: red;
+    border-style: none;
+    border: 3px gray solid;
+    height: 3vh;
+    width: 100%;
+    align-self: center;
+    letter-spacing: 1px;
+
+}
+
+.vehiclesbtn:hover{
+
+    background-color:  red; 
+    color:aliceblue;
+    
+
+}
+.starshipbtn{
+    background-color: #00e0ff;
+    color: black;
+    border-style: none;
+    border: 3px gray solid;
+    height: 3vh;
+    width: 100%;
+    align-self: center;
+    letter-spacing: 1px;
+
+}
+
+.starshipbtn:hover{
+
+    background-color:  black; 
+    color: #00e0ff;
+    
+
+}
+
 
 
 
