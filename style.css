@@ -238,7 +238,7 @@ letter-spacing: 1px;
 
 }
 
-.vehiclesbtn{
+.vehiclebtn{
     background-color: aliceblue;
     color: red;
     border-style: none;
@@ -250,7 +250,7 @@ letter-spacing: 1px;
 
 }
 
-.vehiclesbtn:hover{
+.vehiclebtn:hover{
 
     background-color:  red; 
     color:aliceblue;
