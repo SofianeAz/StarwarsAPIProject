@@ -277,6 +277,25 @@ letter-spacing: 1px;
 
 }
 
+.pilotsbtn{
+
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 231, 17);
+    border-style: none;
+    border: 3px gray solid;
+    height: 3vh;
+    width: 100%;
+    align-self: center;
+    letter-spacing: 1px;
+
+
+}
+
+.pilots:hover{
+    background-color: rgb(255, 231, 17);
+    color: rgb(0, 0, 0);;
+}
+
 
 
 
