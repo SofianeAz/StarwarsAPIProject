@@ -1,3 +1,12 @@
+//           https://github.com/SofianeAz/             Coded by Sofiane Az 
+//
+// If you want to use this, use it but give credits. This took a lot of work.
+//
+// Si tu veux l'utiliser, utilise le, mais n'oublie pas de citer la source, cela a nécéssité pas mal de travail et de temps.
+//
+// Not done yet, will finish I got time.
+
+
 const url = "https://swapi.dev/api/";
 
 const LoaderElement = document.getElementById("loader");
