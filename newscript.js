@@ -169,7 +169,7 @@ async function loadFullCard(label) {
          
             console.log(whatIwant);
             if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
-               key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld"){        
+               key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld" && key != "pilots"){        
 
             createFullCard(whatIwant);
             }             
