@@ -11,7 +11,12 @@ const url = "https://swapi.dev/api/";
 
 const LoaderElement = document.getElementById("loader");
 
-//------------------------------------------------------- TO DO Search bar --------------------------------------//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------- TO DO - Search BAR --------------------------------------//
+//------------------------------------------------------- TO DO - Spotify API music -------------------------------//
+//----------------------------------------------- Clean some more console.log and code left in there---------------//
+//------------------------------------------------ TO DO - create special containers for buttons-------------------//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // init
 (async () => {
@@ -190,7 +195,6 @@ async function loadFullCard(label) {
 
 async function createInfoBtn(parameter){
     const data = await fetch(`${parameter}`).then((res) => res.json());
-    // console.log("ici le fetch des planets");
     // console.log(data);
     const newBtn = document.createElement("button");
     if(data.name){
