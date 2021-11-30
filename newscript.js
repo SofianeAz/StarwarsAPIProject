@@ -4,7 +4,7 @@
 //
 // Si tu veux l'utiliser, utilise le, mais n'oublie pas de citer la source, cela a nécéssité pas mal de travail et de temps.
 //
-// Not done yet, will finish I got time.
+// Not done yet, will finish when I got time.
 
 
 const url = "https://swapi.dev/api/";
