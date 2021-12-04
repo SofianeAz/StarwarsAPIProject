@@ -20,7 +20,7 @@ body{
 
 
 /* nav related CSS */
-nav {
+ /* nav {
     position: fixed;
     top:0;
     display: flex;
@@ -30,8 +30,9 @@ nav {
     width: 100%;
     background-color: black;
     color: rgb(156, 156, 132);
-}
+} */
 
+/*
 .navbutton{
     
     border-style: none;
@@ -45,7 +46,7 @@ nav {
     letter-spacing: 0.5px;
     text-decoration: aliceblue;
     color: aliceblue;
-    transition: 1s;
+    transition: 1s; 
 
 }
 
@@ -56,7 +57,11 @@ nav {
     background: black;
     text-decoration: underline yellow;
     transition: 1s;
-}
+} */
+
+
+
+/* font-size: 0.3em; */
 
 .animation-nav{
     /* margin-top: 25vh; */
@@ -73,6 +78,44 @@ nav {
 }
 
 @media (min-width: 600px){
+    nav {
+        position: fixed;
+        top:0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 10vh;
+        width: 100%;
+        background-color: black;
+        color: rgb(156, 156, 132);
+    }
+    
+    .navbutton{
+    
+        border-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5vh;
+        width: 10vw;
+        background: transparent;
+        box-shadow: 5px 5px aliceblue;
+        letter-spacing: 0.5px;
+        text-decoration: aliceblue;
+        color: aliceblue;
+        transition: 1s;
+    
+    }
+    
+    .navbutton:hover{
+        box-shadow: 10px 10px yellow;
+        letter-spacing: 3px;
+        color: aliceblue;
+        background: black;
+        text-decoration: underline yellow;
+        transition: 1s;
+    }
+    
 
             .cardbouton{
                 background: rgb(255,241,27);
@@ -84,7 +127,7 @@ nav {
                 background-color: black;
                 /* background-image: url(https://www.kindpng.com/picc/m/101-1013629_black-star-star-wars-death-star-hd-png.png); */
                 background-position: center;
-                height: 175px;
+                height: 80px;
                 width: 175px;
                 color: rgb(255, 255, 255);
                 padding: 1.5vh ;
@@ -104,6 +147,47 @@ nav {
             }
 }
 @media (max-width: 600px){
+    nav {
+        padding: 5vw;
+        position: fixed;
+        top:0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        height: 20vh;
+        width: 100%;
+        background-color: black;
+        color: rgb(156, 156, 132);
+    }
+    
+    .navbutton{
+    
+        border-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 5vh;
+        width: 25vw;
+        margin:1vw;
+        background: transparent;
+        box-shadow: 5px 5px aliceblue;
+        letter-spacing: 0.5px;
+        text-decoration: aliceblue;
+        color: aliceblue;
+        transition: 1s;
+        font-size: 0.5em;
+    
+    }
+    
+    .navbutton:hover{
+        box-shadow: 7px 7px yellow;
+        letter-spacing: 3px;
+        color: aliceblue;
+        background: black;
+        text-decoration: underline yellow;
+        transition: 1s;
+    }
     .cardbouton{
         background: rgb(255,241,27);
         display: flex;
@@ -122,6 +206,7 @@ nav {
          border-radius: 30%; 
         border: 2px black solid;
         box-shadow: 2px 2px aliceblue;
+    
         transition: 1s;
 
     }
@@ -140,7 +225,7 @@ nav {
 .fullcard{
     font-size: 1em;
     background-color: gray;    
-    width: 30vw;
+    width: 100%;
     padding: 5px;
     border: 5px black solid;
 }
@@ -174,7 +259,7 @@ nav {
 #card-container{
     display: flex;
     flex-direction: column;
-    width: 40vw;
+    width: 60vw;
     margin: 5vw;
     background-color: transparent;
     padding: 5vw;
