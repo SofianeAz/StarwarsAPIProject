@@ -1,2 +1,2 @@
 # StarwarsAPIProject
-Starwars API project. First project done with JavaScript.
+Starwars API project. My very first project done with JavaScript.
