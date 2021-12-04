@@ -10,9 +10,12 @@
 
 body{
     background-image: url(https://starwarsblog.starwars.com/wp-content/uploads/2020/04/star-wars-backgrounds-36-1.jpg) ;
-   /* background-repeat: no-repeat;*/
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    
+    background-position: center;  
+    background-size: 1920px 1080px;  
+    max-width: 100vw;
+    transition: 1s ease-in-out;
 }
 
 
@@ -69,33 +72,69 @@ nav {
     transition: 0.5s;
 }
 
-.cardbouton{
-    background: rgb(255,241,27);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+@media (min-width: 600px){
 
-    background-color: black;
-    /* background-image: url(https://www.kindpng.com/picc/m/101-1013629_black-star-star-wars-death-star-hd-png.png); */
-    background-position: center;
-    height: 175px;
-    width: 175px;
-    color: rgb(255, 255, 255);
-    padding: 1.5vh ;
-    margin: 1vw;
-     border-radius: 30%; 
-    border: 2px black solid;
-    box-shadow: 2px 2px aliceblue;
-    transition: 1s;
-    
+            .cardbouton{
+                background: rgb(255,241,27);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            
+                background-color: black;
+                /* background-image: url(https://www.kindpng.com/picc/m/101-1013629_black-star-star-wars-death-star-hd-png.png); */
+                background-position: center;
+                height: 175px;
+                width: 175px;
+                color: rgb(255, 255, 255);
+                padding: 1.5vh ;
+                margin: 1vw;
+                 border-radius: 30%; 
+                border: 2px black solid;
+                box-shadow: 2px 2px aliceblue;
+                transition: 1s;
+
+            }
+
+            .cardbouton:hover{
+                transition: 1s;
+                color: aliceblue; 
+                letter-spacing: 3px;
+                box-shadow: 10px 10px yellow;
+            }
 }
+@media (max-width: 600px){
+    .cardbouton{
+        background: rgb(255,241,27);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    
+        background-color: black;
+        /* background-image: url(https://www.kindpng.com/picc/m/101-1013629_black-star-star-wars-death-star-hd-png.png); */
+        background-position: center;
+        height: 80px;
+        width: 80px;
+        color: rgb(255, 255, 255);
+        padding: 1.5vh ;
+        margin: 1vw;
+         border-radius: 30%; 
+        border: 2px black solid;
+        box-shadow: 2px 2px aliceblue;
+        transition: 1s;
 
-.cardbouton:hover{
-    transition: 1s;
-    color: aliceblue; 
-    letter-spacing: 3px;
-    box-shadow: 10px 10px yellow;
+    }
+
+    .cardbouton:hover{
+        transition: 1s;
+        color: aliceblue; 
+        letter-spacing: 3px;
+        box-shadow: 10px 10px yellow;
+    }
+
+
+
 }
 
 .fullcard{
@@ -119,15 +158,16 @@ nav {
 }
 #main-container{
     display:flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    width: 50vw;
+    /* justify-content: flex-start; */
+    
+    flex-wrap:wrap;
+    width: 30vw;
     background-color: transparent;
     /* margin-top: 10vh;
     margin-bottom: 15vh;
     margin-left: 5vw;
     margin-right: 5vw; */
-    margin: 20vh 5vw 10vh 5vw;
+    margin: 20vh 5vw 5vh 5vw;
     
 }
 

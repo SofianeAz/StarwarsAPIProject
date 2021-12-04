@@ -114,6 +114,12 @@ async function cardItem(cardItems, cardUrl){
 const myMovieContainer = document.getElementById('specialmovies');
 const myResidentContainer = document.getElementById('specialresidents');
 
+
+
+
+/// target l'url pour setup le background 
+// var splitedUrl = label.split('/');
+
 async function loadFullCard(label) {
     LoaderElement.classList.remove('hide');
     myCardContainer.innerHTML = '';
@@ -121,7 +127,35 @@ async function loadFullCard(label) {
      console.log(data);
      LoaderElement.classList.add('hide');
      
-     
+
+     // background change code
+
+     let splitedUrl = label.split('/');
+     console.log(splitedUrl);
+
+     if(splitedUrl[4] == "films"){
+         document.body.style = "background-image: url(https://lumiere-a.akamaihd.net/v1/images/image_1760b382.jpeg?region=0,0,2048,878);";
+     }
+
+     if(splitedUrl[4] == "species"){
+        document.body.style = " background-image: url(https://www.10wallpaper.com/wallpaper/1920x1080/1512/Star_Wars_The_Force_Awakens_2015_HD_Wallpaper_07_1920x1080.jpg)";
+     }
+     if(splitedUrl[4] == "starships"){
+        // document.body.style = " background-image: url(../img/1183696.jpg)"
+        document.body.style = "background-image: url(https://wallpaperaccess.com/full/2506528.jpg)";
+     }
+     if(splitedUrl[4] == "planets"){
+        document.body.style = " background-image: url(../img/61ab51a6a41b7.jpg";
+     }
+     if(splitedUrl[4] == "vehicles"){
+        // document.body.style = " background-image: url(https://static.wikia.nocookie.net/8f94fce0-ef20-46ab-a30d-8377f17b88d6";
+        document.body.style = " background-image: url(https://img5.goodfon.com/original/1728x972/d/2a/andrew-march-by-andrew-march-mantis-in-trouble-chris-kuhn-ar.jpg)";
+     }
+     if(splitedUrl[4] == "people"){
+        document.body.style = " background-image: url(https://images4.alphacoders.com/653/thumb-1920-653613.jpg";
+     }
+
+     //
      //--------- categories pour chaque type; pour que la function marche avec tous les type de "minicard" à créer ---------//
      if(data.planets){
         for(i=0; i < data.planets.length; i++){
@@ -176,6 +210,14 @@ async function loadFullCard(label) {
             createPilotsBtn(element);
         }
     }
+   
+    if(data.people){
+        for(i=0; i < data.people.length; i++){
+            const element = data.people[i];
+            createInfoBtn(element);
+        }
+
+    }
     
     for (const [key, value] of Object.entries(data)) {
             console.log([key]);
@@ -183,7 +225,7 @@ async function loadFullCard(label) {
          
             console.log(whatIwant);
             if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
-               key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld" && key != "pilots"){        
+               key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld" && key != "pilots" & key!= "people"){        
 
             createFullCard(whatIwant);
             }             
