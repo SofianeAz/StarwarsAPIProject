@@ -145,7 +145,7 @@ async function loadFullCard(label) {
         document.body.style = "background-image: url(https://wallpaperaccess.com/full/2506528.jpg)";
      }
      if(splitedUrl[4] == "planets"){
-        document.body.style = " background-image: url(../img/61ab51a6a41b7.jpg";
+        document.body.style = " background-image: url(https://img.wallpapersafari.com/desktop/1920/1080/78/46/OFdp36.jpg";
      }
      if(splitedUrl[4] == "vehicles"){
         // document.body.style = " background-image: url(https://static.wikia.nocookie.net/8f94fce0-ef20-46ab-a30d-8377f17b88d6";
