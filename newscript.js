@@ -11,12 +11,12 @@ const url = "https://swapi.dev/api/";
 
 const LoaderElement = document.getElementById("loader");
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//------------------------------------------------------- TO DO - Search BAR --------------------------------------//
-//------------------------------------------------------- TO DO - Spotify API music -------------------------------//
-//----------------------------------------------- Clean some more console.log and code left in there---------------//
-//------------------------------------------------ TO DO - create special containers for buttons-------------------//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------- TO DO - Search BAR --------------------------------------//
+//----------------------------------------- TO DO - Spotify API music -------------------------------//
+//--------------------------------- Clean some more console.log and code left in there---------------//
+//---------------------------------- TO DO - create special containers for buttons-------------------//
+///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // init
 (async () => {
@@ -36,13 +36,14 @@ const myFooter = document.getElementById('footer-container');
 // creation des boutons pour l'init
 function navItem(label) {
     const el = document.createElement("button");
-    const smallDiv = document.createElement('div');
-    smallDiv.setAttribute("class", "animation-nav");
+    // const smallDiv = document.createElement('div');
+    // smallDiv.setAttribute("class", "animation-nav");
     el.setAttribute("class", "navbutton");
     el.addEventListener("click", () => loadNavLabels(label));
     el.innerText = label.toUpperCase();
-    nav.appendChild(smallDiv);
-    smallDiv.appendChild(el);
+    // nav.appendChild(smallDiv);
+    nav.appendChild(el);
+    // smallDiv.appendChild(el);
     LoaderElement.classList.add('hide');
 }
 
@@ -221,13 +222,13 @@ async function loadFullCard(label) {
     
     for (const [key, value] of Object.entries(data)) {
             console.log([key]);
-            const whatIwant = [`${key} : ${value}`];      
+            const whatIwant = [`${key} :  ${value}`];      
          
             console.log(whatIwant);
             if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
                key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld" && key != "pilots" & key!= "people"){        
 
-            createFullCard(whatIwant);
+                createFullCard(whatIwant);
             }             
         }
         
@@ -235,20 +236,36 @@ async function loadFullCard(label) {
 }
 
 
+
+
+
 async function createInfoBtn(parameter){
     const data = await fetch(`${parameter}`).then((res) => res.json());
     // console.log(data);
     const newBtn = document.createElement("button");
     if(data.name){
-        newBtn.innerText = data.name;
+        newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "fullcardbtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
+
+        const vimg = document.createElement('img');
+        vimg.setAttribute('src', 'https://cdn0.iconfinder.com/data/icons/star-wars-3/154/droid-helmet-soldier-star-wars-256.png');
+        vimg.setAttribute('class', 'vehicleimg');
+        newBtn.appendChild(vimg);
+
         myCardContainer.appendChild(newBtn);
     }
     if(data.title){
-        newBtn.innerText = data.title;
+        newBtn.innerText = data.title+" ";
         newBtn.setAttribute("class", "moviecardbtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
+
+        const vimg = document.createElement('img');
+        vimg.setAttribute('src', 'https://as1.ftcdn.net/v2/jpg/02/05/18/44/1000_F_205184418_t91TINxilW8CT2aWEqVW9J8b6CKf8iss.jpg');
+        vimg.setAttribute('class', 'vehicleimg');
+        newBtn.appendChild(vimg);
+
+
         myCardContainer.appendChild(newBtn);
     }
     // planetBtn.innerText = data.name || data.title;
@@ -260,12 +277,16 @@ async function createInfoBtn(parameter){
 
 async function createHomeWorld(parameter){
     const data = await fetch(`${parameter}`).then((res) => res.json());
-    console.log("ici le fetch de l'Homeworld");
-    console.log(data);
     const homeWorldBtn = document.createElement("button");
-    homeWorldBtn.innerText = "HomeWorld : "+data.name;
+    homeWorldBtn.innerText = "HomeWorld : "+data.name+" ";
     homeWorldBtn.setAttribute("class", "fullcardbtn");
     homeWorldBtn.addEventListener("click", () => loadFullCard(parameter));
+
+    const vimg = document.createElement('img');
+    vimg.setAttribute('src', 'https://cdn4.iconfinder.com/data/icons/star-wars-13/50/30-512.png');
+    vimg.setAttribute('class', 'vehicleimg');
+    homeWorldBtn.appendChild(vimg);
+
     myCardContainer.appendChild(homeWorldBtn);
 
 }
@@ -273,28 +294,50 @@ async function createHomeWorld(parameter){
 async function createSpeciesBtn(parameter){
     const data = await fetch(`${parameter}`).then((res) => res.json());
     const newBtn = document.createElement("button");    
-        newBtn.innerText = data.name;
+        newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "speciesbtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
+
+        const vimg = document.createElement('img');
+        vimg.setAttribute('src', 'https://cdn4.iconfinder.com/data/icons/star-wars-13/50/63-256.png');
+        vimg.setAttribute('class', 'vehicleimg');
+        newBtn.appendChild(vimg);
+        // https://cdn4.iconfinder.com/data/icons/star-wars-13/50/63-256.png
         myCardContainer.appendChild(newBtn);
 }
 
 async function createVehicleBtn(parameter){
     const data = await fetch(`${parameter}`).then((res) => res.json());
+
+
+
     const newBtn = document.createElement("button");    
-        newBtn.innerText = data.name;
+        newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "vehiclebtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
         myCardContainer.appendChild(newBtn);
+
+          // img test 
+    const vimg = document.createElement('img');
+    vimg.setAttribute('src', 'https://cdn2.iconfinder.com/data/icons/star-wars-6/24/AT-AT-Walker-512.png');
+    vimg.setAttribute('class', 'vehicleimg');
+    newBtn.appendChild(vimg);
+  
 
 }
 
 async function createStarshipBtn(parameter){
     const data = await fetch(`${parameter}`).then((res) => res.json());
     const newBtn = document.createElement("button");    
-        newBtn.innerText = data.name;
+        newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "starshipbtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
+        const vimg = document.createElement('img');
+        vimg.setAttribute('src', 'https://cdn4.iconfinder.com/data/icons/star-wars-9/100/X-wing-256.png');
+        vimg.setAttribute('class', 'vehicleimg');
+        newBtn.appendChild(vimg);
+
+        // https://cdn4.iconfinder.com/data/icons/star-wars-9/100/X-wing-256.png
         myCardContainer.appendChild(newBtn);
     
 }
@@ -302,9 +345,15 @@ async function createStarshipBtn(parameter){
 async function createPilotsBtn(parameter){
     const data = await fetch(`${parameter}`).then((res) => res.json());
     const newBtn = document.createElement("button");    
-        newBtn.innerText = data.name;
+        newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "pilotsbtn");
-        newBtn.addEventListener("click", () => loadFullCard(parameter));
+
+        const vimg = document.createElement('img');
+        vimg.setAttribute('src', 'https://cdn0.iconfinder.com/data/icons/star-wars-3/154/droid-helmet-soldier-star-wars-256.png');
+        vimg.setAttribute('class', 'vehicleimg');
+        newBtn.appendChild(vimg);
+
+       newBtn.addEventListener("click", () => loadFullCard(parameter));
         myCardContainer.appendChild(newBtn);
     
 }
@@ -316,6 +365,8 @@ async function createFullCard(param){
     const el = document.createElement('h3')
     el.setAttribute("class", "fullcard");
     el.innerText = param;
+    console.log(param);
+    console.log('hello');
     myCardContainer.appendChild(el);
 }
 
@@ -376,4 +427,46 @@ async function loadCardButtons(param){
 //     el.innerText = label;
 //     nav.appendChild(el);
 // }
+const urlsearch = 'https://swapi.dev/api/people/?search=';
+const searchInput = document.getElementById('search');
+const sendItBtn = document.getElementById('searchbutton');
 
+
+async function searchIt(param) {
+    const datasearch = await fetch(`${urlsearch}${param}`).then((res) => res.json());
+    if(datasearch.results.length > 0){
+    // console.log(datasearch.results.length);
+        loadFullCard(datasearch.results[0].url);
+    } else { 
+        myCardContainer.innerHTML = "<h3 class='fullcard'> No result found</h3>";
+    }
+}
+
+sendItBtn.addEventListener('click', () => { searchIt(searchInput.value); });
+
+// searchInput.addEventListener('focus', () => { loadTxt(); });
+
+function loadTxt(){
+    sendItBtn.classList.remove('hide');
+
+    function doThis(){
+        setTimeout(myFunc, 500, "S");
+        setTimeout(myFunc, 650, "e");
+        setTimeout(myFunc, 800, "a");
+        setTimeout(myFunc, 950, "r");
+        setTimeout(myFunc, 1100, "c");
+        setTimeout(myFunc, 1250, "h");
+    }
+    
+    function myFunc(p1) {
+        sendItBtn.innerHTML += p1;
+    }
+    doThis();
+    // setInterval(animate1, 20) sendItBtn.innerText = "Search";
+}
+
+loadTxt();
+
+// if(searchInput.value == ''){
+//     sendItBtn.innerHTMl = '';
+// }

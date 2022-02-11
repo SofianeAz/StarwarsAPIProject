@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="search.scss"> -->
     <title>StarWars API Project</title>
 
     
@@ -15,8 +16,16 @@
 </section>
     <nav>
     <!-- Nav -->
+    <!-- <div class="logo"> -->
+        <img class='logo' src="https://www.hollywoodreporter.com/wp-content/uploads/2022/01/EA-Respawn-Lucasfilm-H-2022.jpg" >
+    <!-- </div> -->
+    
     </nav>
-
+<div class="search-container">
+    <input type="text" id="search" placeholder="Search">
+    <button id="searchbutton" class="navbutton hide">
+    </button>
+</div>
 
 <div id="bigcontainer">
     <div id="main-container" class="transparent">
@@ -24,11 +33,9 @@
     </div>
 
     <div id="card-container">
-        <!-- conteneur des cartes -->
-
-      
-
+        <!-- conteneur des cartes -->    
     </div>
+
      <!-- <div id="specialmovies">
 
     </div>
@@ -45,7 +52,6 @@
 
 <footer id="footer-container">
     <!-- footer -->
-
 </footer>
 <!-- loader --><canvas id="canvas"></canvas>
 <div id="loader" class="loader">
