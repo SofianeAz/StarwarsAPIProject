@@ -27,6 +27,21 @@ const LoaderElement = document.getElementById("loader");
     }
 })();
 
+
+
+// image for characters API
+const imgUrl = 'https://akabab.github.io/starwars-api/api/all.json';
+
+const dataImgArray = new Array();
+// init img api
+(async () => { 
+    // async function getImgForChar(){
+    const data = await fetch(imgUrl).then((res) => res.json());
+    console.log('image data');
+    dataImgArray.push(data);
+})();
+
+
 // elements HTML constant pour le display
 const nav = document.querySelector("nav");
 const mainContainer = document.querySelector('#main-container');
@@ -72,7 +87,7 @@ async function loadNavLabels(label) {
         const nextBtn = document.createElement('button');
         datalink = data.next.substring(22);
         pageNumber = data.next.substring(35);
-        console.log(datalink);
+        // console.log(datalink);
         nextBtn.setAttribute("class", "nextbtn");
         nextBtn.setAttribute("datalink", datalink);
         // nextBtn.dataset.datalink;
@@ -86,7 +101,7 @@ async function loadNavLabels(label) {
         const prevBtn = document.createElement('button');
         datalink = data.previous.substring(22);
         pageNumber = data.previous.substring(35);
-        console.log(datalink);
+        // console.log(datalink);
         prevBtn.setAttribute("class", "prevbtn");
         prevBtn.setAttribute("datalink", datalink);
         // prevBtn.dataset.datalink;
@@ -121,18 +136,21 @@ const myResidentContainer = document.getElementById('specialresidents');
 /// target l'url pour setup le background 
 // var splitedUrl = label.split('/');
 
+// dataImgArray 
+
+
 async function loadFullCard(label) {
     LoaderElement.classList.remove('hide');
     myCardContainer.innerHTML = '';
     const data = await fetch(label).then((res) => res.json());
-     console.log(data);
+    //  console.log(data);
      LoaderElement.classList.add('hide');
      
 
      // background change code
 
      let splitedUrl = label.split('/');
-     console.log(splitedUrl);
+    //  console.log(splitedUrl);
 
      if(splitedUrl[4] == "films"){
          document.body.style = "background-image: url(https://lumiere-a.akamaihd.net/v1/images/image_1760b382.jpeg?region=0,0,2048,878);";
@@ -155,6 +173,23 @@ async function loadFullCard(label) {
      if(splitedUrl[4] == "people"){
         document.body.style = " background-image: url(https://images4.alphacoders.com/653/thumb-1920-653613.jpg";
      }
+    loadMoviePicture(data);
+
+
+     // data Image si elle existe pour le character
+     for(i = 0; i < dataImgArray[0].length; i++){
+        let val = dataImgArray[0][i];
+        // console.log(val);
+        if(data.name && data.name.includes(val.name)){
+            const img = document.createElement('img');
+            img.setAttribute('src', val.image);
+            img.setAttribute('class', 'cardimg');
+            myCardContainer.appendChild(img);
+
+            console.log(val);
+        
+        }
+    }   
 
      //
      //--------- categories pour chaque type; pour que la function marche avec tous les type de "minicard" à créer ---------//
@@ -221,8 +256,13 @@ async function loadFullCard(label) {
     }
     
     for (const [key, value] of Object.entries(data)) {
-            console.log([key]);
-            const whatIwant = [`${key} :  ${value}`];      
+            // console.log([key]);
+            
+
+
+
+            const whatIwant = [`${key} :  ${value}`];  
+             
          
             console.log(whatIwant);
             if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
@@ -233,6 +273,41 @@ async function loadFullCard(label) {
         }
         
     
+}
+
+function loadMoviePicture(datapic){
+    console.log(datapic.title);
+    const aNewHope = 'https://images-na.ssl-images-amazon.com/images/I/81aA7hEEykL.jpg';
+    const empireStrike = 'https://images-na.ssl-images-amazon.com/images/S/pv-target-images/36130eca001baf033aaff6778b21abf5bcfa0d16f944074c07e5e28da7f792bc._RI_V_TTW_.jpg';
+    const returnOfjedi = 'https://images-na.ssl-images-amazon.com/images/I/81g8vEs4ixL.jpg';
+    const phantomMenace = 'https://www.cinemaffiche.fr/4015-tm_thickbox_default/star-wars-la-menace-fantome-episode-1-star-wars-1-the-phantom-menace.jpg';
+    const attackOfClones = 'https://images-na.ssl-images-amazon.com/images/I/91bvd0Yxd4L.jpg';
+    const sithRevenge = 'https://fr.web.img3.acsta.net/medias/nmedia/18/35/53/23/18423997.jpg';
+    if(datapic.title && datapic.title.includes('Hope')){
+        createMovieImg(aNewHope);
+    }
+    if(datapic.title && datapic.title.includes('Empire')){
+        createMovieImg(empireStrike);
+    }
+    if(datapic.title && datapic.title.includes('Return of')){
+        createMovieImg(returnOfjedi);
+    }
+    if(datapic.title && datapic.title.includes('Phantom Menace')){
+        createMovieImg(phantomMenace);
+    }
+    if(datapic.title && datapic.title.includes('Attack')){
+        createMovieImg(attackOfClones);
+    }
+    if(datapic.title && datapic.title.includes('Revenge')){
+        createMovieImg(sithRevenge);
+    }
+}
+
+function createMovieImg($param){
+    const img = document.createElement('img');
+    img.setAttribute('src', $param);
+    img.setAttribute('class', 'cardimg');
+    myCardContainer.appendChild(img);
 }
 
 
@@ -365,8 +440,8 @@ async function createFullCard(param){
     const el = document.createElement('h3')
     el.setAttribute("class", "fullcard");
     el.innerText = param;
-    console.log(param);
-    console.log('hello');
+    // console.log(param);
+    // console.log('hello');
     myCardContainer.appendChild(el);
 }
 
