@@ -97,6 +97,7 @@ body{
     width: 100%;
     padding: 1%;
     align-items: center;
+    position: sticky;
 }
 
 @media (min-width: 600px){
@@ -339,6 +340,18 @@ body{
     /* margin-top: 20%; */
 }
 
+.carddata{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* margin-top: 3%; */
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 2%;
+
+}
+
 
 
 
@@ -426,6 +439,7 @@ body{
     color: rgb(17, 144, 255);
     border-style: none;
     border: 3px gray solid;
+    width: 60%;
     letter-spacing: 1px;
 
 }
@@ -443,6 +457,7 @@ body{
     color: red;
     border-style: none;
     border: 3px gray solid;
+    width: 60%;
     letter-spacing: 1px;
 
 }
@@ -459,6 +474,7 @@ body{
     color: black;
     border-style: none;
     border: 3px gray solid;
+    width: 60%;
     letter-spacing: 1px;
 
 }
@@ -477,6 +493,7 @@ body{
     color: rgb(255, 231, 17);
     border-style: none;
     border: 3px gray solid;
+    width: 60%;
     letter-spacing: 1px;
 
 
@@ -629,3 +646,5 @@ body{
       }
     
 }
+
+

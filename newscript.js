@@ -20,7 +20,9 @@ const LoaderElement = document.getElementById("loader");
 
 // init
 (async () => {
-    const data = await fetch(url).then((res) => res.json());
+    const data = await fetch(url).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });;
     // console.log(data);
     for (const key in data) {
         navItem(key);
@@ -36,7 +38,9 @@ const dataImgArray = new Array();
 // init img api
 (async () => { 
     // async function getImgForChar(){
-    const data = await fetch(imgUrl).then((res) => res.json());
+    const data = await fetch(imgUrl).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });;
     console.log('image data');
     dataImgArray.push(data);
 })();
@@ -70,7 +74,9 @@ async function loadNavLabels(label) {
     mainContainer.innerHTML = '';
     myFooter.innerHTML ='';
     myCardContainer.innerHTML ='';
-    const data = await fetch(`${url}${label}`).then((res) => res.json());
+    const data = await fetch(`${url}${label}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });;
     LoaderElement.classList.add('hide');
     // console.log(`${url}${label}/`)
     // console.log(data.results);
@@ -126,9 +132,11 @@ async function cardItem(cardItems, cardUrl){
   
 }
 
+// CARD CONTAINER FOR BUTTONS //
+//
+//
 
-const myMovieContainer = document.getElementById('specialmovies');
-const myResidentContainer = document.getElementById('specialresidents');
+
 
 
 
@@ -142,8 +150,19 @@ const myResidentContainer = document.getElementById('specialresidents');
 async function loadFullCard(label) {
     LoaderElement.classList.remove('hide');
     myCardContainer.innerHTML = '';
-    const data = await fetch(label).then((res) => res.json());
-    //  console.log(data);
+
+
+    // creation d'un container pour les infos
+    const infoContainer = document.createElement('div');
+    infoContainer.setAttribute('id', 'specialinfo');
+    infoContainer.setAttribute('class', 'carddata');
+
+    myCardContainer.appendChild(infoContainer);
+    
+    const data = await fetch(label).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
+     console.log(data);
      LoaderElement.classList.add('hide');
      
 
@@ -181,12 +200,13 @@ async function loadFullCard(label) {
         let val = dataImgArray[0][i];
         // console.log(val);
         if(data.name && data.name.includes(val.name)){
+            const infoCard = document.getElementById('specialinfo');
             const img = document.createElement('img');
             img.setAttribute('src', val.image);
             img.setAttribute('class', 'cardimg');
-            myCardContainer.appendChild(img);
+            infoCard.appendChild(img);
 
-            console.log(val);
+            // console.log(val);
         
         }
     }   
@@ -194,53 +214,113 @@ async function loadFullCard(label) {
      //
      //--------- categories pour chaque type; pour que la function marche avec tous les type de "minicard" à créer ---------//
      if(data.planets){
+        const planetsContainer = document.createElement('div');
+        planetsContainer.setAttribute('id', 'specialplanets');
+        planetsContainer.setAttribute('class', 'carddata');
+        planetsContainer.innerHTML += "<h4 class='fullcard'> Planets : </h4>";
+        myCardContainer.appendChild(planetsContainer);
         for(i=0; i < data.planets.length; i++){
             const element = data.planets[i];
-            createInfoBtn(element);
+            createPlanetsBtn(element);
         }
     }
     if(data.homeworld){
+            // creation d'un container pour l'homeworld
+            const homeContainer = document.createElement('div');
+            homeContainer.setAttribute('id', 'specialhome')
+            homeContainer.setAttribute('class', 'carddata');
+            homeContainer.innerHTML += "<h4 class='fullcard'> Homeworld : </h4>";
+            myCardContainer.appendChild(homeContainer)
             createHomeWorld(data.homeworld);
     }
     if(data.residents){
+        // creation d'un container pour les residents
+        const residentContainer = document.createElement('div');
+        residentContainer.setAttribute('id', 'specialresidents');
+        residentContainer.setAttribute('class', 'carddata');
+        residentContainer.innerHTML += "<h4 class='fullcard'> Characters : </h4>";
+        myCardContainer.appendChild(residentContainer);
         for(i=0; i < data.residents.length; i++){
             const element = data.residents[i];
             createInfoBtn(element);
             }
     }
     if(data.characters){
+        // creation d'un container pour les residents
+        const container = document.createElement('div');
+        container.setAttribute('id', 'specialresidents');
+        container.setAttribute('class', 'carddata');
+        container.innerHTML += "<h4 class='fullcard'> Characters : </h4>";
+        myCardContainer.appendChild(container);
         for(i=0; i < data.characters.length; i++){
             const element = data.characters[i];
             createInfoBtn(element);
-            }
+        }
     }
-    if(data.films){       
+    if(data.films){   
+        // creation d'un container pour les films
+        const container = document.createElement('div');
+        container.setAttribute('id', 'specialmovies');
+        container.setAttribute('class', 'carddata');
+        container.innerHTML += "<h4 class='fullcard'> Films : </h4>";
+        myCardContainer.appendChild(container); 
+        // creations des boutons   
         for(i=0; i < data.films.length; i++){
-            const element = data.films[i];
-            createInfoBtn(element);
-            }
+                const element = data.films[i];
+                createInfoBtn(element);
+        }
     }
     if(data.species){
+        //creation d'un container des species
+        const speciesContainer = document.createElement('div');
+        speciesContainer.setAttribute('id', 'specialspecies')
+        speciesContainer.setAttribute('class', 'carddata');
+        speciesContainer.innerHTML += "<h4 class='fullcard'> Species : </h4>";
+        myCardContainer.appendChild(speciesContainer);
+        if(data.species.length < 1 || data.species.length == undefined){
+                const el = document.createElement('h3')
+                el.setAttribute("class", "fullcard");
+                el.innerText  += " Unknown.";
+                speciesContainer.appendChild(el);
+        }
         for(i=0; i < data.species.length; i++){
             const element = data.species[i];
-            createSpeciesBtn(element);
+                createSpeciesBtn(element);
         }
     }
 
     // -------------------------------------------- TO DO (check if there are any "case" not treated) -- to do Pilots --------------------------------------------------------//
     if(data.vehicles){
+        // creation d'un container vehicules
+        const vehicleContainer = document.createElement('div');
+        vehicleContainer.setAttribute('id', 'specialvehicles')
+        vehicleContainer.setAttribute('class', 'carddata');
+        vehicleContainer.innerHTML += "<h4 class='fullcard'> Vehicles : </h4>";
+        myCardContainer.appendChild(vehicleContainer);
         for(i=0; i < data.vehicles.length; i++){
             const element = data.vehicles[i];
             createVehicleBtn(element);
         }
     }
     if(data.starships){
+        // creation d'un container des vaisseaux
+        const shipContainer = document.createElement('div');
+        shipContainer.setAttribute('id', 'specialships');
+        shipContainer.setAttribute('class', 'carddata');
+        shipContainer.innerHTML += "<h4 class='fullcard'> StarShips : </h4>";
+        myCardContainer.appendChild(shipContainer);
+        // creation des boutons starships
         for(i=0; i < data.starships.length; i++){
             const element = data.starships[i];
             createStarshipBtn(element);
         }
     }
       if(data.pilots){
+        const container = document.createElement('div');
+        container.setAttribute('id', 'specialpilots');
+        container.setAttribute('class', 'carddata');
+        container.innerHTML += "<h4 class='fullcard'> Pilots : </h4>";
+        myCardContainer.appendChild(container);
         for(i=0; i < data.pilots.length; i++){
             const element = data.pilots[i];
             createPilotsBtn(element);
@@ -248,6 +328,11 @@ async function loadFullCard(label) {
     }
    
     if(data.people){
+        const container = document.createElement('div');
+        container.setAttribute('id', 'specialresidents');
+        container.setAttribute('class', 'carddata');
+        container.innerHTML += "<h4 class='fullcard'> Characters : </h4>";
+        myCardContainer.appendChild(container);
         for(i=0; i < data.people.length; i++){
             const element = data.people[i];
             createInfoBtn(element);
@@ -264,7 +349,7 @@ async function loadFullCard(label) {
             const whatIwant = [`${key} :  ${value}`];  
              
          
-            console.log(whatIwant);
+            // console.log(whatIwant);
             if(key != "url" && key != "planets" && key != "starships" && key != "vehicles" && key != "species" && key != "characters" &&
                key != "created" && key!= "edited" && key !="films" && key!= "residents" && key != "homeworld" && key != "pilots" & key!= "people"){        
 
@@ -275,8 +360,8 @@ async function loadFullCard(label) {
     
 }
 
-function loadMoviePicture(datapic){
-    console.log(datapic.title);
+async function loadMoviePicture(datapic){
+    // console.log(datapic.title);
     const aNewHope = 'https://images-na.ssl-images-amazon.com/images/I/81aA7hEEykL.jpg';
     const empireStrike = 'https://images-na.ssl-images-amazon.com/images/S/pv-target-images/36130eca001baf033aaff6778b21abf5bcfa0d16f944074c07e5e28da7f792bc._RI_V_TTW_.jpg';
     const returnOfjedi = 'https://images-na.ssl-images-amazon.com/images/I/81g8vEs4ixL.jpg';
@@ -303,11 +388,12 @@ function loadMoviePicture(datapic){
     }
 }
 
-function createMovieImg($param){
+async function createMovieImg($param){
+    const infoCard = document.getElementById('specialinfo');
     const img = document.createElement('img');
     img.setAttribute('src', $param);
     img.setAttribute('class', 'cardimg');
-    myCardContainer.appendChild(img);
+    infoCard.appendChild(img);
 }
 
 
@@ -315,33 +401,42 @@ function createMovieImg($param){
 
 
 async function createInfoBtn(parameter){
-    const data = await fetch(`${parameter}`).then((res) => res.json());
+    const data = await fetch(`${parameter}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
     // console.log(data);
-    const newBtn = document.createElement("button");
+    
     if(data.name){
+        const newBtn = document.createElement("button");
+        const myContainer = document.getElementById('specialresidents'); 
+
         newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "fullcardbtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
 
+        myContainer.appendChild(newBtn);
         const vimg = document.createElement('img');
         vimg.setAttribute('src', 'https://cdn0.iconfinder.com/data/icons/star-wars-3/154/droid-helmet-soldier-star-wars-256.png');
         vimg.setAttribute('class', 'vehicleimg');
         newBtn.appendChild(vimg);
-
-        myCardContainer.appendChild(newBtn);
+        
     }
     if(data.title){
+        const newBtn = document.createElement("button");
+        // container des boutons de films
+        const myMovieContainer = document.getElementById('specialmovies');
+
         newBtn.innerText = data.title+" ";
         newBtn.setAttribute("class", "moviecardbtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
-
+        myMovieContainer.appendChild(newBtn);
         const vimg = document.createElement('img');
         vimg.setAttribute('src', 'https://as1.ftcdn.net/v2/jpg/02/05/18/44/1000_F_205184418_t91TINxilW8CT2aWEqVW9J8b6CKf8iss.jpg');
         vimg.setAttribute('class', 'vehicleimg');
         newBtn.appendChild(vimg);
 
 
-        myCardContainer.appendChild(newBtn);
+       
     }
     // planetBtn.innerText = data.name || data.title;
     // planetBtn.setAttribute("class", "fullcardbtn");
@@ -349,9 +444,35 @@ async function createInfoBtn(parameter){
     // myCardContainer.appendChild(planetBtn);
 
 }
+async function createPlanetsBtn(parameter){
+    const data = await fetch(`${parameter}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
+    // console.log(data);
+    
+    if(data.name){
+        const newBtn = document.createElement("button");
+        const myContainer = document.getElementById('specialplanets'); 
+
+        newBtn.innerText = data.name+" ";
+        newBtn.setAttribute("class", "fullcardbtn");
+        newBtn.addEventListener("click", () => loadFullCard(parameter));
+
+        myContainer.appendChild(newBtn);
+        const vimg = document.createElement('img');  
+        vimg.setAttribute('src', 'https://cdn4.iconfinder.com/data/icons/star-wars-13/50/30-512.png');
+        vimg.setAttribute('class', 'vehicleimg');
+        newBtn.appendChild(vimg);      
+    }
+}
+// 'specialplanets' id
 
 async function createHomeWorld(parameter){
-    const data = await fetch(`${parameter}`).then((res) => res.json());
+    const data = await fetch(`${parameter}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
+
+    const homeBox = document.getElementById('specialhome');
     const homeWorldBtn = document.createElement("button");
     homeWorldBtn.innerText = "HomeWorld : "+data.name+" ";
     homeWorldBtn.setAttribute("class", "fullcardbtn");
@@ -362,35 +483,44 @@ async function createHomeWorld(parameter){
     vimg.setAttribute('class', 'vehicleimg');
     homeWorldBtn.appendChild(vimg);
 
-    myCardContainer.appendChild(homeWorldBtn);
+    homeBox.appendChild(homeWorldBtn);
 
 }
 
 async function createSpeciesBtn(parameter){
-    const data = await fetch(`${parameter}`).then((res) => res.json());
+    const data = await fetch(`${parameter}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
+    const speciesBox = document.getElementById('specialspecies');
+
     const newBtn = document.createElement("button");    
         newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "speciesbtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
-
+        speciesBox.appendChild(newBtn);
         const vimg = document.createElement('img');
         vimg.setAttribute('src', 'https://cdn4.iconfinder.com/data/icons/star-wars-13/50/63-256.png');
         vimg.setAttribute('class', 'vehicleimg');
         newBtn.appendChild(vimg);
         // https://cdn4.iconfinder.com/data/icons/star-wars-13/50/63-256.png
-        myCardContainer.appendChild(newBtn);
+        
 }
 
 async function createVehicleBtn(parameter){
-    const data = await fetch(`${parameter}`).then((res) => res.json());
+
+    const garage = document.getElementById('specialvehicles');
+
+    const data = await fetch(`${parameter}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
 
 
 
-    const newBtn = document.createElement("button");    
+        const newBtn = document.createElement("button"); 
         newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "vehiclebtn");
         newBtn.addEventListener("click", () => loadFullCard(parameter));
-        myCardContainer.appendChild(newBtn);
+        garage.appendChild(newBtn);
 
           // img test 
     const vimg = document.createElement('img');
@@ -402,7 +532,11 @@ async function createVehicleBtn(parameter){
 }
 
 async function createStarshipBtn(parameter){
-    const data = await fetch(`${parameter}`).then((res) => res.json());
+
+    const shipyard = document.getElementById('specialships');
+    const data = await fetch(`${parameter}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
     const newBtn = document.createElement("button");    
         newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "starshipbtn");
@@ -413,23 +547,26 @@ async function createStarshipBtn(parameter){
         newBtn.appendChild(vimg);
 
         // https://cdn4.iconfinder.com/data/icons/star-wars-9/100/X-wing-256.png
-        myCardContainer.appendChild(newBtn);
+        shipyard.appendChild(newBtn);
     
 }
 
 async function createPilotsBtn(parameter){
-    const data = await fetch(`${parameter}`).then((res) => res.json());
+    const data = await fetch(`${parameter}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
+      const pilotContainer = document.getElementById('specialpilots')
     const newBtn = document.createElement("button");    
         newBtn.innerText = data.name+" ";
         newBtn.setAttribute("class", "pilotsbtn");
-
+        pilotContainer.appendChild(newBtn);
         const vimg = document.createElement('img');
         vimg.setAttribute('src', 'https://cdn0.iconfinder.com/data/icons/star-wars-3/154/droid-helmet-soldier-star-wars-256.png');
         vimg.setAttribute('class', 'vehicleimg');
         newBtn.appendChild(vimg);
 
        newBtn.addEventListener("click", () => loadFullCard(parameter));
-        myCardContainer.appendChild(newBtn);
+        
     
 }
 
@@ -437,12 +574,13 @@ async function createPilotsBtn(parameter){
 
 async function createFullCard(param){
       
+    const infoCard = document.getElementById('specialinfo');
     const el = document.createElement('h3')
     el.setAttribute("class", "fullcard");
     el.innerText = param;
     // console.log(param);
     // console.log('hello');
-    myCardContainer.appendChild(el);
+    infoCard.appendChild(el);
 }
 
 async function loadCardButtons(param){
@@ -508,7 +646,9 @@ const sendItBtn = document.getElementById('searchbutton');
 
 
 async function searchIt(param) {
-    const datasearch = await fetch(`${urlsearch}${param}`).then((res) => res.json());
+    const datasearch = await fetch(`${urlsearch}${param}`).then((res) => res.json()).catch(function(error) {
+        console.log(error);
+      });
     if(datasearch.results.length > 0){
     // console.log(datasearch.results.length);
         loadFullCard(datasearch.results[0].url);
