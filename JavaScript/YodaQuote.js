@@ -44,6 +44,7 @@ async function createQuote(param){
 const myNavigator = document.querySelector('nav');
 myNavigator.addEventListener('click', ()=> {
     getQuote(); });
+
     
 
 function getRandomInt(max) {
