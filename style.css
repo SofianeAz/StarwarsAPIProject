@@ -82,16 +82,9 @@ body{
     width: 20%;
     transition: 0.5s;
 }
-.logo{
-    display: flex;
-    width: 15%;
-    background-image: url(https://www.hollywoodreporter.com/wp-content/uploads/2022/01/EA-Respawn-Lucasfilm-H-2022.jpg);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;  
-    box-shadow: 0 0 7px rgb(172, 170, 155);
-}
 
+@media (min-width: 600px){
+    
 .search-container{
     display:flex;
     width: 100%;
@@ -100,7 +93,16 @@ body{
     position: sticky;
 }
 
-@media (min-width: 600px){
+    .logo{
+        display: flex;
+        width: 15%;
+        background-image: url(https://www.hollywoodreporter.com/wp-content/uploads/2022/01/EA-Respawn-Lucasfilm-H-2022.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;  
+        box-shadow: 0 0 7px rgb(172, 170, 155);
+    }
+    
     nav {
         position: sticky;
         top:0;
@@ -189,14 +191,158 @@ body{
                 /* animation: pulse 1s infinite;
                 animation-direction: alternate; */
             }
+            #main-container{
+                display:flex;
+                flex-direction: column;
+                width: 20%;
+                background-color: transparent;
+                padding: 2%;
+                box-sizing: border-box;    
+            }
+            #bigcontainer{
+                display: flex;
+                box-sizing: border-box;
+                height: 100%;
+                width: 100%;
+            }
+            #card-container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 80%;
+                /* margin-top: 3%; */
+                background-color: transparent;
+                box-sizing: border-box;
+                padding: 2%;
+                /* margin-top: 20%; */
+            }
+            .fullcard{
+                display:flex;
+                font-size: 1em;
+                background-color: black; 
+                color: aliceblue;   
+                /* background: url(https://lescroisesdelaforce.fr/wp-content/uploads/2018/08/146610-large-star-wars-star-background-1920x1080.jpg); */
+                width: 60%;
+                padding: 1%;
+                padding-left: 3%;
+                border: 5px rgba(53, 56, 59, 0.795) ridge;
+            }
+            .cardimg{
+                display: flex;
+                width: 60%;
+                height: 50vh;
+                object-fit: contain;
+                padding: 2%;
+                background-color: black;
+                border: 2px gray ridge;
+            }
+            .fullcardbtn{
+                background-color: aliceblue;
+                color: black;
+                border-style: none;
+                font-weight: bolder;
+                border: 3px gray solid;
+                height: auto;
+                width: 60%;
+                letter-spacing: 1px;
+        }
+        
+        .vehicleimg{
+            max-width: 15px;
+            max-height: 15px;
+        }
+        .moviecardbtn{
+            background-color: black;
+            color: aliceblue;
+            border-style: none;
+            border: 3px gray solid;
+            /* height: 3%; */
+            width: 60%;
+            letter-spacing: 1px;
+        }
+        
+        .speciesbtn{
+            background-color: rgb(255, 255, 255);
+            color: rgb(17, 144, 255);
+            border-style: none;
+            border: 3px gray solid;
+            width: 60%;
+            letter-spacing: 1px;
+        
+        }
+        
+        .vehiclebtn{
+            background-color: aliceblue;
+            color: red;
+            border-style: none;
+            border: 3px gray solid;
+            width: 60%;
+            letter-spacing: 1px;
+        
+        }
+        .starshipbtn{
+            background-color: #00e0ff;
+            color: black;
+            border-style: none;
+            border: 3px gray solid;
+            width: 60%;
+            letter-spacing: 1px;
+        
+        }
+        .pilotsbtn{
+
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 231, 17);
+            border-style: none;
+            border: 3px gray solid;
+            width: 60%;
+            letter-spacing: 1px;
+        
+        
+        }
+
 }
+
+
+/* mobile */
 @media (max-width: 600px){
-    nav {
+    .logo{
+        display: flex;
+        width: 50%;
+        background-image: url(https://www.hollywoodreporter.com/wp-content/uploads/2022/01/EA-Respawn-Lucasfilm-H-2022.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;  
+        box-shadow: 0 0 7px rgb(172, 170, 155);
+    }
+        
+    .search-container{
+        display:flex;
+        justify-content: center;
+        width: 100%;
+        padding: 1%;
+        align-items: center;
         position: sticky;
+    }
+    #search{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.7%;
+        margin-right: 2%;
+        margin-left: 2%;
+        height: 25px;
+        box-shadow: 0 0 5px rgb(29, 28, 24);    
+    }
+
+    
+    nav {
+        position: absolute;
         top:0;
         display: flex;
         justify-content: space-evenly;
-        /* align-items: center; */
+        flex-direction: column;
+        align-items: center;
         height: auto;
         width: 100%;
         padding: 2%;
@@ -211,10 +357,10 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        width: 25%;
+        height: 25px;
+        width: 50%;
         margin:1%;
-        background: transparent;
+        background: black;
         box-shadow: 5px 5px aliceblue;
         letter-spacing: 0.5px;
         text-decoration: aliceblue;
@@ -260,14 +406,15 @@ body{
         background-color: black;
         /* background-image: url(https://www.kindpng.com/picc/m/101-1013629_black-star-star-wars-death-star-hd-png.png); */
         background-position: center;
-        height: 80px;
-        width: 80px;
+        height: 60px;
+        width: 25%;
         color: rgb(255, 255, 255);
         padding: 1.5% ;
         margin: 1%;
-         border-radius: 30%; 
+         border-radius: 15%; 
         border: 2px black solid;
         box-shadow: 2px 2px aliceblue;
+        font-size: 0.7em;
     
         transition: 1s;
 
@@ -279,22 +426,122 @@ body{
         letter-spacing: 1px;
         box-shadow: 10px 10px yellow;
     }
+    #bigcontainer{
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+    #main-container{
+        display:flex;
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        background-color: transparent;
+        padding: 2%;
+        box-sizing: border-box;    
+    }
+    #card-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        /* margin-top: 3%; */
+        background-color: transparent;
+        box-sizing: border-box;
+        padding: 2%;
+        /* margin-top: 20%; */
+    }
+    .fullcard{
+        display:flex;
+        font-size: 1em;
+        background-color: black; 
+        color: aliceblue;   
+        /* background: url(https://lescroisesdelaforce.fr/wp-content/uploads/2018/08/146610-large-star-wars-star-background-1920x1080.jpg); */
+        width: 100%;
+        padding: 1%;
+        padding-left: 3%;
+        border: 5px rgba(53, 56, 59, 0.795) ridge;
+    }
+    .cardimg{
+        display: flex;
+        width: 100%;
+        height: 50vh;
+        object-fit: contain;
+        padding: 2%;
+        background-color: black;
+        border: 2px gray ridge;
+    }
+    /* cards */
+    .fullcardbtn{
+        background-color: aliceblue;
+        color: black;
+        border-style: none;
+        font-weight: bolder;
+        border: 3px gray solid;
+        height: auto;
+        width: 100%;
+        letter-spacing: 1px;
+        }
 
+        .vehicleimg{
+            max-width: 15px;
+            max-height: 15px;
+        }
+        .moviecardbtn{
+            background-color: black;
+            color: aliceblue;
+            border-style: none;
+            border: 3px gray solid;
+            /* height: 3%; */
+            width: 100%;
+            letter-spacing: 1px;
+        }
+        
+        .speciesbtn{
+            background-color: rgb(255, 255, 255);
+            color: rgb(17, 144, 255);
+            border-style: none;
+            border: 3px gray solid;
+            width: 100%;
+            letter-spacing: 1px;
+        
+        }
+        
+        .vehiclebtn{
+            background-color: aliceblue;
+            color: red;
+            border-style: none;
+            border: 3px gray solid;
+            width: 100%;
+            letter-spacing: 1px;
+        
+        }
+        .starshipbtn{
+            background-color: #00e0ff;
+            color: black;
+            border-style: none;
+            border: 3px gray solid;
+            width: 100%;
+            letter-spacing: 1px;
+        
+        }
+        .pilotsbtn{
 
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 231, 17);
+            border-style: none;
+            border: 3px gray solid;
+            width: 100%;
+            letter-spacing: 1px;
+        
+        
+        }
 
 }
 
-.fullcard{
-    display:flex;
-    font-size: 1em;
-    background-color: black; 
-    color: aliceblue;   
-    /* background: url(https://lescroisesdelaforce.fr/wp-content/uploads/2018/08/146610-large-star-wars-star-background-1920x1080.jpg); */
-    width: 60%;
-    padding: 1%;
-    padding-left: 3%;
-    border: 5px rgba(53, 56, 59, 0.795) ridge;
-}
 
 /* hide class */
 .hide{
@@ -303,42 +550,7 @@ body{
 
 
 /* Containers CSS */
-#bigcontainer{
-    display: flex;
-    box-sizing: border-box;
-    height: 100%;
-    width: 100%;
-}
-#main-container{
-    display:flex;
-    /* justify-content: flex-start; */
-    flex-direction: column;
-    
-    /* flex-wrap:wrap; */
-    /* height: auto; */
-    width: 20%;
-    background-color: transparent;
-    padding: 2%;
-    box-sizing: border-box;
-    /* margin-top: 10%;
-    margin-bottom: 15%;
-    margin-left: 5%;
-    margin-right: 5%; */
-    /* margin: 20px 5px 5px 5px; */
-    
-}
 
-#card-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-    /* margin-top: 3%; */
-    background-color: transparent;
-    box-sizing: border-box;
-    padding: 2%;
-    /* margin-top: 20%; */
-}
 
 .carddata{
     display: flex;
@@ -357,7 +569,7 @@ body{
 
 
 /* footer CSS */
-#footer-container{    
+footer{
     display: flex;
     height: 10%;
     width: 100%;
@@ -367,6 +579,25 @@ body{
     position: fixed;
     box-sizing: border-box;
     bottom: 0;
+
+}
+#footer-container{    
+    display: flex;
+    height: 10%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    background: transparent;
+    box-sizing: border-box;
+}
+.new-container{
+    display: flex;
+    height: 10%;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    background: transparent;
+    box-sizing: border-box;
 
 }
 
@@ -400,48 +631,15 @@ body{
 
 
 /* cards CSS */
-.fullcardbtn{
-        background-color: aliceblue;
-        color: black;
-        border-style: none;
-        font-weight: bolder;
-        border: 3px gray solid;
-        height: auto;
-        width: 60%;
-        letter-spacing: 1px;
-}
 
-.vehicleimg{
-    max-width: 15px;
-    max-height: 15px;
-}
 .fullcardbtn:hover{
     background-color: black;
     color: aliceblue;
 }
 
-.moviecardbtn{
-    background-color: black;
-    color: aliceblue;
-    border-style: none;
-    border: 3px gray solid;
-    /* height: 3%; */
-    width: 60%;
-    letter-spacing: 1px;
-}
 .moviecardbtn:hover{
     background-color: aliceblue;
     color: black;
-}
-
-.speciesbtn{
-    background-color: rgb(255, 255, 255);
-    color: rgb(17, 144, 255);
-    border-style: none;
-    border: 3px gray solid;
-    width: 60%;
-    letter-spacing: 1px;
-
 }
 
 .speciesbtn:hover{
@@ -451,31 +649,11 @@ body{
     
 
 }
-
-.vehiclebtn{
-    background-color: aliceblue;
-    color: red;
-    border-style: none;
-    border: 3px gray solid;
-    width: 60%;
-    letter-spacing: 1px;
-
-}
-
 .vehiclebtn:hover{
 
     background-color:  red; 
     color:aliceblue;
     
-
-}
-.starshipbtn{
-    background-color: #00e0ff;
-    color: black;
-    border-style: none;
-    border: 3px gray solid;
-    width: 60%;
-    letter-spacing: 1px;
 
 }
 
@@ -487,17 +665,6 @@ body{
 
 }
 
-.pilotsbtn{
-
-    background-color: rgb(0, 0, 0);
-    color: rgb(255, 231, 17);
-    border-style: none;
-    border: 3px gray solid;
-    width: 60%;
-    letter-spacing: 1px;
-
-
-}
 #card-container > button {
     width: 60%;
     padding: 1%;
@@ -509,16 +676,6 @@ body{
 }
 
 
-
-.cardimg{
-    display: flex;
-    width: 60%;
-    height: 50vh;
-    object-fit: contain;
-    padding: 2%;
-    background-color: black;
-    border: 2px gray ridge;
-}
 
 /* loader */
 
@@ -606,11 +763,12 @@ body{
   } */
 
   /* pulse */
-  .pulse {
+  @media (min-width: 600px){ 
+    .pulse {
     background: black;
     color: aliceblue;
     
-  border: 3px black ridge;
+    border: 3px black ridge;
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
@@ -618,6 +776,25 @@ body{
 
 
     /* transform: 1; */
+    }
+}
+@media (max-width: 600px){
+    .pulse {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+        color: aliceblue;
+        height: 15px;
+        border: 3px black ridge;
+        line-height: 1;
+        margin: 0.5em;
+        padding: 1em 2em;
+        box-shadow: 0 0 0 0 rgb(255, 231, 17);
+    
+    
+        /* transform: 1; */
+        }
 }
 
 .pulse:hover {
@@ -647,4 +824,15 @@ body{
     
 }
 
+
+#menubtn {
+    position: relative;
+    z-index: 5;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 90%; */
+}
 
