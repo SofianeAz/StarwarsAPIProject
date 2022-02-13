@@ -11,7 +11,7 @@ async function getQuote(){
     // async function getImgForChar(){
     const data = await fetch(yodaURL).then((res) => res.json()).catch(function(error) {
         console.log(error);
-      });;
+      });
     console.log('dataYoda');
     // console.log(data);
     createQuote(data);
