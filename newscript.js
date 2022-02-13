@@ -718,7 +718,7 @@ if(screen.width > 600){
     menu.classList.remove('hide');
 }
 console.log(screen.width);
-if(document.getElementById('menubtn')){
+if(document.getElementById('menubtn') && screen.width < 600){
     const nav = document.querySelector('nav')
     mainContainer.addEventListener('click', ()=> { nav.classList.add('hide');})
     const menu = document.getElementById('menubtn');

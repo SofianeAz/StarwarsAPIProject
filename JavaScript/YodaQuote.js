@@ -30,5 +30,6 @@ async function createQuote(param){
     // quote.appendChild(imgQuote);
 }
 
-const myNav = document.querySelector('nav');
-myNav.addEventListener('click', ()=> {getQuote(); });
+const myNavigator = document.querySelector('nav');
+myNavigator.addEventListener('click', ()=> {
+    getQuote(); });
