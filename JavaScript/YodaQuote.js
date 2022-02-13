@@ -3,7 +3,7 @@
 
 // const yodaURL = 'http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote';
 
-const yodaURL = 'javascript/quote.json';
+const yodaURL = 'JavaScript/quote.json';
 
 
 
@@ -48,5 +48,5 @@ myNavigator.addEventListener('click', ()=> {
     
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max)+ 1;
+    return Math.floor(Math.random() * max) + 1;
 }
