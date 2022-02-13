@@ -173,40 +173,40 @@ async function loadFullCard(label) {
 
      if(splitedUrl[4] == "films"){
          document.body.style = "background-image: url(https://lumiere-a.akamaihd.net/v1/images/image_1760b382.jpeg?region=0,0,2048,878);";
-         if(screen.width < 600){
+         if(screen.width < 600 && document.querySelector('nav').getAttribute('class') != 'hide'){
                 document.body.style.paddingTop =   "90%";
          }
      }
 
      if(splitedUrl[4] == "species"){
         document.body.style = " background-image: url(https://www.10wallpaper.com/wallpaper/1920x1080/1512/Star_Wars_The_Force_Awakens_2015_HD_Wallpaper_07_1920x1080.jpg)";
-        if(screen.width < 600){
+        if(screen.width < 600 && document.querySelector('nav').getAttribute('class') != 'hide'){
             document.body.style.paddingTop =   "90%";
          }
      }
      if(splitedUrl[4] == "starships"){
         // document.body.style = " background-image: url(../img/1183696.jpg)"
         document.body.style = "background-image: url(https://wallpaperaccess.com/full/2506528.jpg)";
-        if(screen.width < 600){
+        if(screen.width < 600 && document.querySelector('nav').getAttribute('class') != 'hide'){
             document.body.style.paddingTop =   "90%";
         }
      }
      if(splitedUrl[4] == "planets"){
         document.body.style = " background-image: url(https://img.wallpapersafari.com/desktop/1920/1080/78/46/OFdp36.jpg";
-        if(screen.width < 600){
+        if(screen.width < 600 && document.querySelector('nav').getAttribute('class') != 'hide'){
             document.body.style.paddingTop =   "90%";
         }
      }
      if(splitedUrl[4] == "vehicles"){
         // document.body.style = " background-image: url(https://static.wikia.nocookie.net/8f94fce0-ef20-46ab-a30d-8377f17b88d6";
         document.body.style = " background-image: url(https://img5.goodfon.com/original/1728x972/d/2a/andrew-march-by-andrew-march-mantis-in-trouble-chris-kuhn-ar.jpg)";
-        if(screen.width < 600){
+        if(screen.width < 600 && document.querySelector('nav').getAttribute('class') != 'hide'){
             document.body.style.paddingTop =   "90%";
         }
      }
      if(splitedUrl[4] == "people"){
         document.body.style = " background-image: url(https://images4.alphacoders.com/653/thumb-1920-653613.jpg";
-        if(screen.width < 600){
+        if(screen.width < 600 && document.querySelector('nav').getAttribute('class') != 'hide'){
             document.body.style.paddingTop =   "90%";
          }
      }
@@ -713,12 +713,14 @@ if(screen.width > 600){
     const nav = document.querySelector('nav')
     nav.classList.remove('hide');
     console.log(screen.width);
-} else {
+} else if(screen.width < 600) {
     const menu = document.getElementById('menuctn');
     menu.classList.remove('hide');
 }
 console.log(screen.width);
 if(document.getElementById('menubtn')){
+    const nav = document.querySelector('nav')
+    mainContainer.addEventListener('click', ()=> { nav.classList.add('hide');})
     const menu = document.getElementById('menubtn');
     menu.addEventListener('click', () => { specialfunction();    })
 }
@@ -726,9 +728,9 @@ if(document.getElementById('menubtn')){
 function specialfunction() { 
                             const nav = document.querySelector('nav')  
                             nav.classList.toggle('hide');
-                            if(document.querySelector('nav').getAttribute('class') === 'hide'){
+                            if(document.querySelector('nav').getAttribute('class') == 'hide'){
                                 console.log(document.querySelector('nav').getAttribute('class'));
-                                document.body.style.paddingTop = "1%;" 
+                                document.body.style.paddingTop = "0";
                             } else {
                                   document.body.style.paddingTop =   "90%" ;
                             }  
