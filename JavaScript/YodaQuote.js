@@ -3,7 +3,7 @@
 
 // const yodaURL = 'http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote';
 
-const yodaURL = 'JavaScript/quote.json';
+const yodaURL = 'https://sofianeaz.github.io/StarwarsAPIProject/JavaScript/quote.json';
 
 
 
@@ -43,7 +43,8 @@ async function createQuote(param){
 
 const myNavigator = document.querySelector('nav');
 myNavigator.addEventListener('click', ()=> {
-    getQuote(); });
+    getQuote();
+});
 
     
 
