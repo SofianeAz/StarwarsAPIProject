@@ -22,7 +22,7 @@ const LoaderElement = document.getElementById("loader");
 (async () => {
     const data = await fetch(url).then((res) => res.json()).catch(function(error) {
         console.log(error);
-      });;
+      });
     // console.log(data);
     for (const key in data) {
         navItem(key);

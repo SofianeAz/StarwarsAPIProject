@@ -411,7 +411,6 @@ body{
         color: rgb(255, 255, 255);
         padding: 1.5% ;
         margin: 1%;
-         border-radius: 15%; 
         border: 2px black solid;
         box-shadow: 2px 2px aliceblue;
         font-size: 0.7em;
@@ -421,10 +420,14 @@ body{
     }
 
     .cardbouton:hover{
-        transition: 1s;
-        color: aliceblue; 
-        letter-spacing: 1px;
-        box-shadow: 10px 10px yellow;
+        transition: 0.7s ease-in;
+        /* color: aliceblue; 
+        letter-spacing: 1px; */
+        height: 80px;
+        width: 40%;
+        font-size: 1.2em;
+        box-shadow: 0px 0px 5px rgb(255,241,27); 
+        border: 3px rgb(255,241,27) ridge;  
     }
     #bigcontainer{
         display: flex;
@@ -841,3 +844,14 @@ body{
     /* padding-top: 90%; */
 }
 
+.yodaquote{
+    /* text-decoration: dotted; */
+    font-weight: 800;
+    text-shadow: 1px 1px 2px black, 0 0 5px aliceblue;
+    
+}
+.yodaimg{
+ 
+        max-width: 35px;
+        max-height: 35px;
+}
