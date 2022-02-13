@@ -1,7 +1,7 @@
 
 
 
-const yodaURL = 'https://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote';
+const yodaURL = 'http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote';
 
 
 
