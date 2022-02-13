@@ -213,7 +213,7 @@ body{
                 /* margin-top: 3%; */
                 background-color: transparent;
                 box-sizing: border-box;
-                padding: 2%;
+                padding: 0% 2% 2% 2%;
                 /* margin-top: 20%; */
             }
             .fullcard{
@@ -262,7 +262,7 @@ body{
         }
         
         .speciesbtn{
-            background-color: rgb(255, 255, 255);
+            background-color: aliceblue;
             color: rgb(17, 144, 255);
             border-style: none;
             border: 3px gray solid;
@@ -451,7 +451,7 @@ body{
         /* margin-top: 3%; */
         background-color: transparent;
         box-sizing: border-box;
-        padding: 2%;
+        padding: 0% 2% 2% 2%;
         /* margin-top: 20%; */
     }
     .fullcard{
@@ -501,7 +501,7 @@ body{
         }
         
         .speciesbtn{
-            background-color: rgb(255, 255, 255);
+            background-color: aliceblue;
             color: rgb(17, 144, 255);
             border-style: none;
             border: 3px gray solid;
@@ -560,7 +560,7 @@ body{
     /* margin-top: 3%; */
     background-color: transparent;
     box-sizing: border-box;
-    padding: 2%;
+    padding: 0% 2% 2% 2%;
 
 }
 
@@ -635,24 +635,27 @@ footer{
 .fullcardbtn:hover{
     background-color: black;
     color: aliceblue;
+    box-shadow: 0px 0px 5px 3px aliceblue;
 }
 
 .moviecardbtn:hover{
     background-color: aliceblue;
     color: black;
+    box-shadow: 0px 0px 5px 3px aliceblue;
 }
 
 .speciesbtn:hover{
 
     background-color:  rgb(17, 144, 255); 
     color:rgb(255, 255, 255);
-    
+    box-shadow: 0px 0px 5px 3px rgb(17, 144, 255);     
 
 }
 .vehiclebtn:hover{
 
     background-color:  red; 
     color:aliceblue;
+    box-shadow: 0px 0px 5px 3px red;    
     
 
 }
@@ -661,6 +664,7 @@ footer{
 
     background-color:  black; 
     color: #00e0ff;
+    box-shadow: 0px 0px 5px 3px #00e0ff; 
     
 
 }
@@ -673,6 +677,7 @@ footer{
 .pilots:hover{
     background-color: rgb(255, 231, 17);
     color: rgb(0, 0, 0);;
+    box-shadow: 0px 0px 5px 3px rgb(255, 231, 17);
 }
 
 
